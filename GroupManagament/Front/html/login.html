@@ -1,0 +1,55 @@
+
+<div class="container login-container "  >
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 login-form-1" style="border-radius: 15px; background-color: white;">
+        <div>
+            <h3><img src="/vti-logo.png" alt=""></h3>
+          
+             
+                
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="username" id="username" placeholder="Your Username *" value="" style="width: 100% !important;" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Your Password *" value="" style="width: 100% !important;" required/>
+                    </div>
+                    <div class="form-group">
+                      
+                        <button type="submit" class="btnSubmit" onclick="login()">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="ForgetPwd">Forget Password?</a>
+                    </div>
+        
+        </div>    
+         
+      </div>
+     
+  </div>
+</div>
+<!-- <p id="id01" class="modal" >
+
+
+    <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" id="username" required>
+        <br/>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+        <br/>
+        <button type="submit" onclick="login()">Login</button>
+        <label>
+    </label>
+    </div>
+</p> -->
+<div class="alert alert-success" id="loginsuccess-alert" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Login Success! </strong>
+  </div>
+  <div class="alert alert-fail" id="loginFail-alert" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Your password is incorrect! </strong>
+  </div>
+
+  

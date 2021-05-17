@@ -1,0 +1,150 @@
+<div class="container">
+    <div class="table-wrapper">
+        
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2> <b>Group View List</b></h2>
+                </div>
+                <div class="col-sm-4">
+                    
+                </div>
+            </div>
+            
+        </div>
+        <table class="table table-bordered">
+            
+            
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAll" onclick="selectAll()">  Selected </th>
+                    <th>STT</th>
+                    <th>Group name</th>
+                    <th>Member</th>
+                    <th>Creator</th>
+                    <th>Create Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>John Doe</td>
+                    <td>Administration</td>
+                    <td>(171) 555-2222</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Peter Parker</td>
+                    <td>Customer Service</td>
+                    <td>(313) 555-5735</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fran Wilson</td>
+                    <td>Human Resources</td>
+                    <td>(503) 555-9931</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr> -->
+            </tbody>
+            
+            <div class="row">
+                <div class="col-sm-9">
+                    
+                
+           
+                  
+                    <input type="text" placeholder="Enter Name" name="serach" id="serachName" >
+                    <button type="button" class="btn btn-info add-new" onclick="serach()">Serach</button>
+                    
+                    
+                </div>
+                <div class="col-sm-3 table-title" style="display: flex; justify-content: flex-end;" >
+                        <button type="button" class="btn btn-info add-new" data-toggle="modal" onclick="openAddDepartmentModal()" style="margin-right: 5px;"><i class="fa fa-plus"></i> Add New</button>
+                        
+                        <button type="button" class="btn btn-info add-new" style="border-radius: 15px; font-weight: bold;" onclick="deleteAllSelected()"><i class="fa fa-trash-o" style="font-size:12px"></i> Delete All</button>
+                    
+                </div>
+            </div>
+            
+
+            
+        </table>
+        <ul class="pagination">
+            <!-- <li><a href="#"><<</a></li> -->
+            <!-- <li><a href="#" onclick="getListDepartments(1,5)">1</a></li> -->
+            <!-- <li><a href="#" onclick="getListDepartments(2,5)">2</a></li>
+            <li><a href="#" onclick="getListDepartments(3,5)">3</a></li>
+            <li><a href="#" onclick="getListDepartments(4,5)">4</a></li>
+            <li><a href="#" onclick="getListDepartments(5,5)">5</a></li>
+            <li><a href="#" >>></a></li> -->
+          </ul>
+
+        
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Group</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="modal-container">
+
+                        <input type="hidden" id="id" name="id">
+
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Enter Name" name="name" id="name" onclick="displayError()" required>
+                        <br>
+                        <p id="errorLengthName" style="color: red; display: none;">Tên group phải ít nhất 6 kí tự!</p>
+                        <p id="errorMaxLengthName" style="color: red; display: none;">Tên group không được vượt quá 50 kí tự!</p>
+                        <p id="errorDuplicateName" style="color: red; display: none;">Tên group đã tồn tại!</p>
+                        <label for="totalMember"><b>Total member</b></label>
+                        <input type="number" placeholder="Enter total member" name="totalMember" id="totalMember" required>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="save3()">Save</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- success alert -->
+    <div class="alert alert-success" id="success-alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Success! </strong>
+    </div>
+    <div class="alert alert-success" id="loginsuccess-alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Login Success! </strong>
+      </div>
+      <div class="alert alert-fail" id="loginFail-alert" style="display: none;">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Your password is incorrect! </strong>
+      </div>
+</div>
